@@ -657,7 +657,7 @@
 				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					8981243218884D2900DB955B = {
-						DevelopmentTeam = Q8K4ZRDEMV;
+						DevelopmentTeam = 6C4646EB2U;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -899,6 +899,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_SSE3_EXTENSIONS = NO;
@@ -941,8 +942,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = Q8K4ZRDEMV;
-				ENABLE_BITCODE = NO;
+				DEVELOPMENT_TEAM = 6C4646EB2U;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -988,7 +988,7 @@
 					"$(inherited)",
 				);
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jtv.itorrent;
+				PRODUCT_BUNDLE_IDENTIFIER = home.incognito.itorrent;
 				PRODUCT_NAME = iTorrent;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1013,7 +1013,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = Q8K4ZRDEMV;
+				DEVELOPMENT_TEAM = 6C4646EB2U;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Other Sources/iTorrent_Prefix.pch";
@@ -1056,7 +1056,7 @@
 					"$(inherited)",
 				);
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jtv.itorrent;
+				PRODUCT_BUNDLE_IDENTIFIER = home.incognito.itorrent;
 				PRODUCT_NAME = iTorrent;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1081,7 +1081,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = Q8K4ZRDEMV;
+				DEVELOPMENT_TEAM = 6C4646EB2U;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Other Sources/iTorrent_Prefix.pch";
@@ -1124,7 +1124,7 @@
 					"$(inherited)",
 				);
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jtv.itorrent;
+				PRODUCT_BUNDLE_IDENTIFIER = home.incognito.itorrent;
 				PRODUCT_NAME = iTorrent;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1152,6 +1152,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -1197,6 +1198,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_SSE3_EXTENSIONS = NO;
