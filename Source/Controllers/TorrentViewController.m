@@ -30,7 +30,7 @@
 #define ADD_FROM_MAGNET_TAG 1002
 #define REMOVE_COMFIRM_TAG 1003
 
-
+#define AUDIO_RECORDING_PATH [NSTemporaryDirectory() stringByAppendingPathComponent:@"temp.caf"]
 
 @implementation TorrentViewController
 
@@ -97,25 +97,33 @@ UIAlertView *info;
             if([fDefaults boolForKey:@"UseMicrophone"])
             {
                 // enable audio recording
-                [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryRecord error:nil];
-                [[AVAudioSession sharedInstance] setActive: YES error: nil];
-                [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-                
-                NSString *soundFilePath = @"/dev/null";
-                NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-                NSDictionary *recordSettings = [NSDictionary
-                                                dictionaryWithObjectsAndKeys:
-                                                [NSNumber numberWithInt:AVAudioQualityMin],
-                                                AVEncoderAudioQualityKey,
-                                                [NSNumber numberWithInt:16],
-                                                AVEncoderBitRateKey,
-                                                [NSNumber numberWithInt: 2],
-                                                AVNumberOfChannelsKey,
-                                                [NSNumber numberWithFloat:44100.0],
-                                                AVSampleRateKey,
-                                                nil];
-                self.recorder = [[AVAudioRecorder alloc] initWithURL:soundFileURL settings:recordSettings error:nil];
-                [self.recorder record];
+                [AVAudioSession.sharedInstance requestRecordPermission:^(BOOL granted) {
+                    if (!granted) {
+                        return;
+                    }
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryRecord error:nil];
+                        [[AVAudioSession sharedInstance] setActive: YES error: nil];
+                        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+                        
+                        NSString *soundFilePath = AUDIO_RECORDING_PATH;//@"/dev/null";
+                        NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+                        NSDictionary *recordSettings = [NSDictionary
+                                                        dictionaryWithObjectsAndKeys:
+                                                        [NSNumber numberWithInt:AVAudioQualityMin],
+                                                        AVEncoderAudioQualityKey,
+                                                        [NSNumber numberWithInt:16],
+                                                        AVEncoderBitRateKey,
+                                                        [NSNumber numberWithInt: 2],
+                                                        AVNumberOfChannelsKey,
+                                                        [NSNumber numberWithFloat:44100.0],
+                                                        AVSampleRateKey,
+                                                        nil];
+                        NSError *error;
+                        self.recorder = [[AVAudioRecorder alloc] initWithURL:soundFileURL settings:recordSettings error:&error];
+                        [self.recorder record];
+                    });
+                }];
             }
             else
             {
@@ -577,7 +585,7 @@ UIAlertView *info;
         [[AVAudioSession sharedInstance] setActive: YES error: nil];
         [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
         
-        NSString *soundFilePath = @"/dev/null";
+        NSString *soundFilePath = AUDIO_RECORDING_PATH;//@"/dev/null";
         NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
         NSDictionary *recordSettings = [NSDictionary
                                         dictionaryWithObjectsAndKeys:
@@ -596,6 +604,7 @@ UIAlertView *info;
     else
     {
         [self.recorder stop];
+        [self.recorder deleteRecording];
     }
 }
 
