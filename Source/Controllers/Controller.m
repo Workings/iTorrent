@@ -187,6 +187,7 @@ static void signal_handler(int sig) {
     [fDefaults setInteger:0 forKey:@"UploadLimit"];
     [fDefaults setBool:NO forKey:@"DownloadLimitEnabled"];
     [fDefaults setBool:NO forKey:@"UploadLimitEnabled"];
+    [fDefaults setBool:YES forKey:@"DownloadLocationConstant"];
     [fDefaults setObject:[self defaultDownloadDir] forKey:@"DownloadFolder"];
     [fDefaults setObject:[self defaultDownloadDir] forKey:@"IncompleteDownloadFolder"];
     [fDefaults setBool:NO forKey:@"UseIncompleteDownloadFolder"];

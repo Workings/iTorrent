@@ -375,7 +375,7 @@ UIAlertView *info;
     (NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
-    FilesTableViewController *savedFiles = [[FilesTableViewController alloc] initWithPath:[NSString stringWithFormat:@"%@/%@", documentsDirectory, @"/torrents"]];
+    FilesTableViewController *savedFiles = [[FilesTableViewController alloc] initWithPath:[NSString stringWithFormat:@"%@/%@", documentsDirectory, @"torrents"]];
     [self.navigationController pushViewController:savedFiles animated:YES];
     
 }
