@@ -101,6 +101,7 @@ extern BOOL isStartingTransferAllowed();
 - (NSString*)torrentsPath;
 - (NSString*)randomTorrentPath;
 - (NSString*)defaultDownloadDir;
+- (NSString*)defaultDownloadDirLocal;
 - (NSString*)configDir;
 - (NSString*)documentsDirectory;
 - (void)updateTorrentHistory;
