@@ -434,7 +434,7 @@ static void signal_handler(int sig) {
 
 - (NSString*)defaultDownloadDir
 {
-    return [[self documentsDirectory] stringByAppendingPathComponent:@"torrents"];
+    return [[self documentsDirectory] stringByAppendingPathComponent:[self defaultDownloadDirLocal]];
 }
 
 
@@ -450,7 +450,7 @@ static void signal_handler(int sig) {
 
 - (NSString*)torrentsPath
 {
-	return [[self documentsDirectory] stringByAppendingPathComponent:@"torrents"];
+	return [[self documentsDirectory] stringByAppendingPathComponent:[self defaultDownloadDirLocal]];
 }
 
 - (NSString*)configDir

@@ -227,7 +227,8 @@ UIAlertView *info;
 - (void)addButtonClicked:(id)sender
 {
         UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Add from..." delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-        [sheet addButtonWithTitle:@"Web"];
+        [sheet addButtonWithTitle:@"Web Search"];
+        [sheet addButtonWithTitle:@"ShowRSS"];
         [sheet addButtonWithTitle:@"Magnet"];
         [sheet addButtonWithTitle:@"URL"];
         [sheet addButtonWithTitle:@"Cancel"];
@@ -647,6 +648,14 @@ UIAlertView *info;
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
+- (void)addFromShowRSSClicked
+{
+    NSString *URL = @"https://showrss.info/timeline";
+    
+    TOWebViewController *webViewController = [[TOWebViewController alloc] initWithAddress:URL :self.controller :self.navigationController];
+    [self.navigationController pushViewController:webViewController animated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -668,11 +677,16 @@ UIAlertView *info;
                     [self addFromWebClicked];
                     break;
                 }
-                case 1: {
-                    [self addFromMagnetClicked];
+                case 1:
+                {
+                    [self addFromShowRSSClicked];
                     break;
                 }
                 case 2: {
+                    [self addFromMagnetClicked];
+                    break;
+                }
+                case 3: {
                     [self addFromURLClicked];
                 }
                 default:
