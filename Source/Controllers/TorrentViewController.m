@@ -229,6 +229,7 @@ UIAlertView *info;
         UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Add from..." delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
         [sheet addButtonWithTitle:@"Web Search"];
         [sheet addButtonWithTitle:@"ShowRSS"];
+        [sheet addButtonWithTitle:@"Limewire"];
         [sheet addButtonWithTitle:@"Magnet"];
         [sheet addButtonWithTitle:@"URL"];
         [sheet addButtonWithTitle:@"Cancel"];
@@ -656,6 +657,14 @@ UIAlertView *info;
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
+- (void)addFromLimewireClicked
+{
+    NSString *URL = @"https://proxyof.com/lime-torrents-proxy-unblock";
+    
+    TOWebViewController *webViewController = [[TOWebViewController alloc] initWithAddress:URL :self.controller :self.navigationController];
+    [self.navigationController pushViewController:webViewController animated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -682,11 +691,16 @@ UIAlertView *info;
                     [self addFromShowRSSClicked];
                     break;
                 }
-                case 2: {
-                    [self addFromMagnetClicked];
+                case 2:
+                {
+                    [self addFromLimewireClicked];
                     break;
                 }
                 case 3: {
+                    [self addFromMagnetClicked];
+                    break;
+                }
+                case 4: {
                     [self addFromURLClicked];
                 }
                 default:

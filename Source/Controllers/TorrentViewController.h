@@ -51,6 +51,7 @@
 - (void)addFromMagnetClicked;
 - (void)addFromMagnetWithExistingMagnet:(NSString*)magnet message:(NSString*)msg;
 - (void)addFromShowRSSClicked;
+- (void)addFromLimewireClicked;
 - (void)addFromWebClicked;
 - (void)activityCounterDidChange:(NSNotification*)notif;
 - (void)newTorrentAdded:(NSNotification*)notif;
